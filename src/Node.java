@@ -6,8 +6,11 @@ import java.util.PriorityQueue;
 class Node {
     public int cost;
     public Node parent;
+    GAME state;
+    int depth;
+    int energy;
 
-    public Node(int cost){
+    public Node(int cost,Node parent,int state,int depth){
         this.cost=cost;
         this.parent=null;
     }
@@ -16,6 +19,7 @@ class Node {
     }
     public Node getNextNode(Node node){
         this.parent=node;
+        return
     }
 
 

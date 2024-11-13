@@ -45,4 +45,12 @@ public  class GAME {
         }
         return false;
     }
+    public int returnS(){
+        for (int i=0;i<7;i++){
+            if(board[i]=='S'){
+                return i;
+            }
+        }
+        return -1;
+    }
 }
