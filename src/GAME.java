@@ -27,9 +27,12 @@ public  class GAME {
 
     }
 
-    public char[] getBoard(){
+    public char[] getBoardClone(){
         return this.board.clone(); //epistrefei clone gia thn periprwths poy den theloyme modifications
 
+    }
+    public char[] getBoard(){
+        return this.board.clone();
     }
     public int BoardLength(){
         return board.length;
@@ -45,12 +48,17 @@ public  class GAME {
         }
         return false;
     }
-    public int returnS(){
-        for (int i=0;i<7;i++){
+    public int returnS(char [] board){
+        for (int i=0;i<board.length;i++){
             if(board[i]=='S'){
                 return i;
             }
         }
         return -1;
+    }
+    public void swap(char[] board, int i,int j){
+        char temp= board[i];
+        board[i] = board[j];
+        board[j] = temp;
     }
 }
