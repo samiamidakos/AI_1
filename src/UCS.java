@@ -46,8 +46,10 @@ public class UCS extends GAME {
             char[] newBoard = parentBoard.clone();
             swap(newBoard, emptyIndex, newIndex);
 
+
             GAME newState = new GAME();
             newState.board = newBoard;
+            newState.PrintBoard();
             int moveCost = Math.abs(move); //to Kostos einai h apolyth timh ths metakinhshs
 
             Node child = new Node(parent.cost + moveCost, parent, newState, parent.depth + 1);
@@ -60,12 +62,26 @@ public class UCS extends GAME {
                          // meta to costos einai h metakinhsh se apolyth timh giati  borei na metainhthei -3 -2 -1 1 1 2 3 thewrtika
         List<Integer> validMoves = new ArrayList<>();
         char[] boardClone = this.getBoardClone();
-        int[] costs;
-        int totalMoves=0;
-        for (int i=position;i<boardClone.length;i++){
-            costs[position+i] =
 
+        for (int k = 3; k >= 1; k--) {
+            if (position - k >= 0) {  // Ensure the move stays within bounds to the left
+                validMoves.add(-k);  // Add the left-side move
+            }
         }
 
+        // Generate valid moves to the right (+1, +2, +3)
+        for (int k = 1; k <= 3; k++) {
+            if (position + k < boardClone.length) { // Ensure the move stays within bounds
+                validMoves.add(k);
+            }
+        }
+        int[] costs = new int[validMoves.size()];
+        for ( int i = 0; i < validMoves.size(); i++) {
+            costs[i] = validMoves.get(i);
+        }
+        /*for( int i=0 ;i < costs.length;i++){
+            System.out.print("Cost"+costs[i]+" ");
+        }*/
+        return costs;
     }
 }

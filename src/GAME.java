@@ -61,4 +61,10 @@ public  class GAME {
         board[i] = board[j];
         board[j] = temp;
     }
+    public void PrintBoard(){
+        for(int i=0;i<board.length;i++){
+            System.out.print(board[i]+" ");
+        }
+        System.out.println();
+    }
 }

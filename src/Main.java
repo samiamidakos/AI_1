@@ -19,5 +19,9 @@ public class Main {
         for (int i = 0; i < 7; i++) {
             System.out.print(UcsAlg.getBoard()[i] + " ");
         }
+        System.out.println("Starting Solving ");
+        UCS ucsSolve= new UCS();
+        ucsSolve.search();
+        ucsSolve.PrintBoard();
     }
 }
